@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Clã Hiokami - O Chamado da Chama</title>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1a0000;
+      background-image: url('https://images.unsplash.com/photo-1608473192943-3e5ecbb3d3d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      font-family: 'MedievalSharp', cursive;
+      color: #ffddb3;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 10vh auto;
+      background: rgba(60, 0, 0, 0.8);
+      padding: 40px;
+      border: 3px solid #ff4500;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff3300;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 1.5rem;
+      color: #ff6347;
+      text-shadow: 0 0 10px #ff0000;
+    }
+
+    p.enigma {
+      font-size: 1.5rem;
+      line-height: 2;
+      color: #ffd6b3;
+      margin-bottom: 2rem;
+    }
+
+    input[type="text"] {
+      width: 60%;
+      padding: 12px;
+      font-size: 1.2rem;
+      background: rgba(0, 0, 0, 0.85);
+      border: 2px solid #ff5722;
+      color: #ffcc99;
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: #b22222;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff3300;
+    }
+
+    #erro {
+      color: #ffa07a;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body onload="tocarSom()">
+  <div class="container">
+    <h1>Clã Hiokami</h1>
+    <p class="enigma">
+      “Nas montanhas me escondo, com fogo a me guiar,<br>
+      Minhas forjas rugem alto, prontas pra guerrear.<br>
+      Com brasas no sangue e orgulho no olhar.”
+    </p>
+
+    <input type="text" id="senha" placeholder="Digite a senha...">
+    <button onclick="verificarSenha()">Acessar</button>
+    <p id="erro"></p>
+  </div>
+
+  <!-- Som de fundo -->
+  <audio id="somFogo" src="https://www.fesliyanstudios.com/play-mp3/387" autoplay loop></audio>
+
+  <script>
+    function tocarSom() {
+      const som = document.getElementById("somFogo");
+      som.volume = 0.4;
+      som.play().catch(() => {}); // silencia erros no autoplay
+    }
+
+    function verificarSenha() {
+      const senha = document.getElementById('senha').value.trim().toUpperCase();
+      if (senha === "HIOKAMI") {
+        window.location.href = "pagina2.html";
+      } else {
+        document.getElementById('erro').textContent = "As chamas ainda não reconheceram sua alma. Tente novamente.";
+      }
+    }
+  </script>
+</body>
+</html>

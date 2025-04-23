@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiokami - Caminho do Trono</title>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1a0000;
+      background-image: url('https://images.unsplash.com/photo-1608473192943-3e5ecbb3d3d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      font-family: 'MedievalSharp', cursive;
+      color: #ffddb3;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 15vh auto;
+      background: rgba(60, 0, 0, 0.85);
+      padding: 40px;
+      border: 3px solid #ff4500;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff3300;
+    }
+
+    p.enigma {
+      font-size: 1.6rem;
+      line-height: 2;
+      color: #ffd6b3;
+      margin-bottom: 2rem;
+    }
+
+    input[type="text"] {
+      width: 60%;
+      padding: 12px;
+      font-size: 1.2rem;
+      background: rgba(0, 0, 0, 0.85);
+      border: 2px solid #ff5722;
+      color: #ffcc99;
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: #b22222;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff3300;
+    }
+
+    #erro {
+      color: #ffa07a;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body onload="tocarSom()">
+  <div class="container">
+    <p class="enigma">
+      Onde o fogo não consome, mas protege.<br>
+      Onde os sonhos são realizados e destruídos.<br>
+      Seus olhos se voltaram para cima, enxergando sua plenitude.
+    </p>
+
+    <input type="text" id="senha" placeholder="Digite a senha...">
+    <button onclick="verificarSenha()">Acessar</button>
+    <p id="erro"></p>
+  </div>
+
+  <!-- Som de fundo (fogo crepitando) -->
+  <audio id="somFogo" src="https://www.fesliyanstudios.com/play-mp3/387" autoplay loop></audio>
+
+  <script>
+    function tocarSom() {
+      const som = document.getElementById("somFogo");
+      som.volume = 0.4;
+      som.play().catch(() => {});
+    }
+
+    function verificarSenha() {
+      const senha = document.getElementById('senha').value.trim().toUpperCase();
+      const senhaCorreta = "TRONO DAS CHAMAS ETÉREAS";
+      if (senha === senhaCorreta.toUpperCase()) {
+        window.location.href = "pagina3.html";
+      } else {
+        document.getElementById('erro').textContent = "VHJvbm8gZGFzIGNoYW1hcyBldMOpcmVhcw==";
+      }
+    }
+  </script>
+</body>
+</html>
